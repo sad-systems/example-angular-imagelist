@@ -1,0 +1,21 @@
+<div class="image_list_title">{{ textTitle }}</div>
+<div class="image_list_container" #conteiner id="xxx">
+
+  <ul>
+
+    <li *ngFor="let item of imageList">
+      <a href="#" (click)="pupupImage( item.url )">
+        <img src="{{ item.thumbnailUrl }}" alt="Image: {{ item.albumId }}.{{ item.id }}" (load)="imageIsLoaded()">
+      </a>
+      <div class="album">  {{ textAlbum }}:  {{ item.albumId }} </div>
+      <div class="photo">  {{ textPhoto }}: {{ item.id }} </div>
+      <div class="title">  {{ item.title }} </div>
+    </li>
+
+  </ul>
+
+  <button class="button_next" *ngIf="!isEndOfList && !inProgress" (click)="getNextList()">{{ textButton }}</button>
+
+  <div class="preloader" *ngIf="inProgress">{{ textPreloader }}</div>
+
+</div>
