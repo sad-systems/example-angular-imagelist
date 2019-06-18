@@ -1,0 +1,13 @@
+{
+    "name": "Image list component",
+    "description": "Image list component for Angular 6+",
+    "version": "1.0.0",
+    "url": "http://sad-systems.ru/",
+    "logo": "assets/logo.png",
+    "paths": "src/app",
+    "options": {
+        "themedir":  "../../yuidoc_themes/sad-systems",
+        "outdir":    "docs",
+        "extension": ".ts,.js"
+    }
+}

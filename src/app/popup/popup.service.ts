@@ -1,6 +1,25 @@
+/**
+ * Popup service
+ *
+ * @author     MrDigger <mrdigger@mail.ru>
+ * @copyright  © SAD-Systems [http://sad-systems.ru], 2018
+ * @created_on 05.10.2018
+ *
+ * @module ImageListModule
+ *
+ */
+
 import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
 import { PopupComponent } from './popup.component';
 
+/**
+ * Popup service
+ *
+ * Provides a service to create, show, hide and destroy the Popup component.
+ * @see PopupComponent
+ *
+ * @class  PopupService
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -17,6 +36,9 @@ export class PopupService {
   /**
    * Отображает Popup компонент
    *
+   * @public
+   * @method show
+   *
    * @param {string} url URL адрес изображения
    */
   show(url) {
@@ -25,6 +47,10 @@ export class PopupService {
 
   /**
    * Скрывает Popup компонент
+   *
+   * @public
+   * @method hide
+   *
    */
   hide() {
     this.getInstance().hide();
@@ -32,6 +58,10 @@ export class PopupService {
 
   /**
    * Возвращает экземпляр Popup компонент
+   *
+   * @public
+   * @method getInstance
+   *
    */
   getInstance() {
     return this.popup ? this.popup : this.create();
@@ -39,6 +69,10 @@ export class PopupService {
 
   /**
    * Создаёт Popup компонент
+   *
+   * @private
+   * @method create
+   *
    */
   private create() {
 
@@ -61,6 +95,10 @@ export class PopupService {
 
   /**
    * Уничтожает Popup компонент
+   *
+   * @public
+   * @method destroy
+   *
    */
   destroy() {
 

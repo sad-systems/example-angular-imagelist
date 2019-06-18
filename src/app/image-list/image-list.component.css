@@ -1,21 +1,3 @@
-.image_list_title {
-
-  font-family: Arial;
-  position: fixed;
-  font-size: 2em;
-  width: 100%;
-  height: 65px;
-  line-height: 2em;
-  text-align: center;
-  background-color: aliceblue;
-  top:  0;
-  left: 0;
-  z-index: 5;
-  box-shadow: 0 0 20px 0px rgba(0,0,0,0.25);
-  overflow: hidden;
-
-}
-
 .image_list_container{
   font-family: Arial;
   position: absolute;

@@ -1,27 +1,58 @@
-# Pics
+# Image list component for Angular 6+
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+###### Author: MrDigger <mrdigger@mail.ru>
+###### © SAD-Systems [http://sad-systems.ru](), 2018
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+> ![English](docs/assets/img/en.gif)
 
-## Code scaffolding
+A component represents a list of images of 9 pieces per page,
+with the ability to load the next page on the "Load more" button 
+(when there is no more images, the button is not displayed).
+By clicking on the thumbnail image opens its full-size version.
+To work with data RxJS library is used.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+> ![Russian](docs/assets/img/ru.gif)
 
-## Build
+Компонент реализующий отображение списка картинок по 9 штук на страницу, 
+с возможностью догрузить следующую страницу по кнопке "Загрузить еще" 
+(когда картинок больше нет, кнопка не отображается). 
+По нажатию на миниатюру картинки открывается её полноразмерная версия. 
+Для работы с данными используется библиотека RxJS.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Live demo
 
-## Running unit tests
+[http://examples.sad-systems.ru/imagelist/]()
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Project documentation
 
-## Running end-to-end tests
+  All the file placed under the `/docs` folder 
+  or see the [live docs](http://examples.sad-systems.ru/imagelist/docs/).
+ 
+### Project source files
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+  All the file placed under the [/src](./src) folder
 
-## Further help
+### Project build files
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ All the file placed under the `/dist` folder.
+ To see the working project replace all the files from this 
+ folder to the web server document root folder. 
+
+## To developer
+
+### Setup
+```
+yarn
+```
+
+### Compiles and hot-reloads for development
+```
+ng serve
+```
+
+### Compiles and minifies for production
+```
+ng build --prod
+```

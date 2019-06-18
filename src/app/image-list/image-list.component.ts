@@ -1,30 +1,112 @@
+/**
+ * Image list component
+ *
+ * @author     MrDigger <mrdigger@mail.ru>
+ * @copyright  © SAD-Systems [http://sad-systems.ru], 2018
+ * @created_on 05.10.2018
+ *
+ * @module ImageListModule
+ * @main   ImageListModule
+ *
+ * @element ImageList
+ */
+
 import { AfterViewChecked, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
-import { ajax } from 'rxjs/ajax';
 
 import { PopupService } from '../popup/popup.service';
+import { ImageListService } from './image-list.service';
 
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Equal } from 'lodash';
 
+
+/**
+ * Image list component
+ *
+ * Represents a list of images of 9 pieces per page.
+ *
+ * @class  ImageListComponent
+ */
 @Component({
   selector:    'app-image-list',
   templateUrl: './image-list.component.html',
-  styleUrls: ['./image-list.component.css']
+  styleUrls:  ['./image-list.component.css'],
+  providers:  [ ImageListService ],
 })
 export class ImageListComponent implements OnInit, AfterViewChecked {
 
-  textTitle     = 'Коллекция картинок';
-  textButton    = 'Загрузить еще';
+  /**
+   * Текст кнопки "Загрузить ещё"
+   *
+   * @property textButton
+   * @type     string
+   */
+  textButton = 'Загрузить еще';
+
+  /**
+   * Текст прелоадера.
+   *
+   * @property textButton
+   * @type     string
+   */
   textPreloader = 'Загружается...';
-  textAlbum     = 'Альбом';
-  textPhoto     = 'Фото';
-  apiUrl        = 'https://jsonplaceholder.typicode.com/photos?_start=[start]&_limit=[limit]';
-  imageList     = [];
-  isEndOfList   = true;
-  listLimit     = 9;
-  listPosition  = 0;
-  inProgress    = false;
+
+  /**
+   * Текст надписи "Альбом"
+   *
+   * @property textButton
+   * @type     string
+   */
+  textAlbum  = 'Альбом';
+
+  /**
+   * Текст надписи "Фото"
+   *
+   * @property textPhoto
+   * @type     string
+   */
+  textPhoto = 'Фото';
+
+  /**
+   * Количество картинок на странице
+   *
+   * @property listLimit
+   * @type     int
+   * @default  9
+   */
+  listLimit = 9;
+
+  /**
+   * Текущаяя позиция последнего элемента в списке
+   *
+   * @property listPosition
+   * @type     int
+   * @default  0
+   */
+  listPosition = 0;
+
+  /**
+   * @private
+   * @property imageList
+   * @type     string
+   */
+  protected imageList = [];
+
+  /**
+   * @private
+   * @property isEndOfList
+   * @type     string
+   */
+  private isEndOfList = true;
+
+  /**
+   * @private
+   * @property inProgress
+   * @type     boolean
+   * @default  false
+   */
+  protected inProgress = false;
 
   /**
    * Доступ к контейнеру списка
@@ -41,14 +123,15 @@ export class ImageListComponent implements OnInit, AfterViewChecked {
    *
    * @param popup
    * @param renderer
+   * @param dataService
    */
-  constructor(private popup: PopupService, private renderer: Renderer2) {}
+  constructor(private popup: PopupService, private renderer: Renderer2, private dataService: ImageListService) {}
 
   /**
    * При создании компонента
    */
-  ngOnInit () {
-
+  ngOnInit ()
+  {
     // --- Подписываемся на прослушку изменения скролинга у контейнера списка:
     this.containerState.pipe(
       map( (el: HTMLElement) => el.scrollHeight ),
@@ -58,56 +141,63 @@ export class ImageListComponent implements OnInit, AfterViewChecked {
 
     // --- Запрашиваем первый список:
     this.getNextList();
-
   }
 
   /**
    * После рендеринга всех компонентов
    */
-  ngAfterViewChecked() {
+  ngAfterViewChecked()
+  {
     // --- Уведомляем об изменении состояния контейнера списка:
     this.containerState.next( this.conteinerElement.nativeElement );
   }
 
   /**
    * Инициирует получение новой порции списка
+   *
+   * @public
+   * @method getNextList
+   *
    */
-  getNextList() {
-
-    const url = this.apiUrl
-      .replace('[start]', this.listPosition.toString())
-      .replace('[limit]', (this.listLimit + 1).toString()); // <--- (+1) чтобы убедиться, что после listLimit точно ещё что-то есть
-
+  getNextList()
+  {
     this.inProgress = true;
-    ajax.getJSON(url).subscribe( this.parseResponse.bind(this), this.parseError.bind(this) ); // console.log('getNext:', url);
-
+    this.dataService.getNextData(this.listPosition, this.listLimit)
+      .subscribe(this.parseResponse.bind(this), this.parseError.bind(this));
   }
 
   /**
    * Обрабатывает полученные от сервера данные
    *
+   * @protected
+   * @method parseResponse
+   *
    * @param {Array} response Массив с картинками
    */
-  parseResponse( response ) {
-
-    if ( !(response instanceof Array) ) { this.parseError({ 'error': 'Сервер вернул не корректные данные' } ); }
-
-    for (let i = 0; i < this.listLimit; i++) {
-      this.imageList.push(response[i]);
+  protected parseResponse( response )
+  {
+    if ( !(response instanceof Array) ) {
+      this.parseError({ 'error': 'Сервер вернул не корректные данные' } );
+      return;
     }
 
-    this.listPosition += this.listLimit;
-    this.isEndOfList   = response.length < (this.listLimit + 1) ? true : false;
-    this.inProgress    = false;
+    this.imageList.push.apply(this.imageList, response);
 
+    this.listPosition += this.listLimit;
+    this.isEndOfList   = this.dataService.isDataFinished();
+    this.inProgress    = false;
   }
 
   /**
    * Обрабатывает ошибку
    *
-   * @param {Object} error
+   * @protected
+   * @method parseError
+   *
+   * @param {Object} error Объект с параметрами ошибки
    */
-  parseError( error ) {
+  protected parseError( error )
+  {
     console.log( 'ERROR:', error );
     this.inProgress = false;
   }
@@ -115,26 +205,36 @@ export class ImageListComponent implements OnInit, AfterViewChecked {
   /**
    * Вызывает popup
    *
-   * @param {string} url
+   * @protected
+   * @method popupImage
+   *
+   * @param {string} url URL картинки
    */
-  pupupImage( url ) {
+  protected popupImage(url)
+  {
     this.popup.show(url);
     return false;
   }
 
   /**
    * Скролит вниз страницы
+   *
+   * @private
+   * @method scrollDown
+   *
    */
-  private scrollDown() {                                               // console.log('SCROLL:', this.conteinerElement.nativeElement);
-
+  private scrollDown()
+  {                                                                    // console.log('SCROLL:', this.conteinerElement.nativeElement);
     if (!this.conteinerElement) { return; }
     const el = this.conteinerElement.nativeElement;                    // console.log('BEF:', el.scrollTop, el.scrollHeight);
     this.renderer.setProperty(el, 'scrollTop', el.scrollHeight); // console.log('FIN:', el.scrollTop);
-
   }
 
   /**
    * Уведомляет о загрузке картинки
+   *
+   * @private
+   * @method imageIsLoaded
    *
    * @info Картинки загружаются асинхронно и меняют размеры страницы.
    *       В частности они меняют размер scrollHeight.
@@ -143,7 +243,8 @@ export class ImageListComponent implements OnInit, AfterViewChecked {
    *
    *       PS: данный метод не нужет, если мы заранее знаем размеры загружаемых картинок.
    */
-  imageIsLoaded() {
+  private imageIsLoaded()
+  {
     // --- Уведомляем об изменении состояния контейнера списка:
     this.containerState.next( this.conteinerElement.nativeElement ); // console.log('LOADED');
   }
