@@ -1,0 +1,628 @@
+{
+    "project": {
+        "name": "Image list component",
+        "description": "Image list component for Angular 6+",
+        "version": "1.0.0",
+        "url": "http://sad-systems.ru/",
+        "logo": "assets/logo.png",
+        "paths": "src/app"
+    },
+    "files": {
+        "src\\app\\image-list\\image-list.component.ts": {
+            "name": "src\\app\\image-list\\image-list.component.ts",
+            "modules": {
+                "ImageListModule": 1
+            },
+            "classes": {
+                "ImageListComponent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\image-list\\image-list.service.ts": {
+            "name": "src\\app\\image-list\\image-list.service.ts",
+            "modules": {},
+            "classes": {
+                "ImageListService": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\popup\\popup.component.ts": {
+            "name": "src\\app\\popup\\popup.component.ts",
+            "modules": {},
+            "classes": {
+                "PopupComponent": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src\\app\\popup\\popup.service.ts": {
+            "name": "src\\app\\popup\\popup.service.ts",
+            "modules": {},
+            "classes": {
+                "PopupService": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "ImageListModule": {
+            "name": "ImageListModule",
+            "submodules": {},
+            "elements": {
+                "ImageList": 1,
+                "PopupComponent": 1
+            },
+            "classes": {
+                "ImageListComponent": 1,
+                "ImageListService": 1,
+                "PopupComponent": 1,
+                "PopupService": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "main",
+            "file": "src\\app\\popup\\popup.service.ts",
+            "line": 15,
+            "description": "Image list component",
+            "author": "MrDigger <mrdigger@mail.ru>",
+            "copyright": "© SAD-Systems [http://sad-systems.ru], 2018",
+            "created_on": "05.10.2018",
+            "itemtype": "main"
+        }
+    },
+    "classes": {
+        "ImageListComponent": {
+            "name": "ImageListComponent",
+            "shortname": "ImageListComponent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ImageListModule",
+            "namespace": "",
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 24,
+            "description": "Image list component\n\nRepresents a list of images of 9 pieces per page."
+        },
+        "ImageListService": {
+            "name": "ImageListService",
+            "shortname": "ImageListService",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ImageListModule",
+            "namespace": "",
+            "file": "src\\app\\image-list\\image-list.service.ts",
+            "line": 16,
+            "description": "Image list service\n\nProvides a service to obtain the data for ImageListComponent.",
+            "see": [
+                "ImageListComponent"
+            ]
+        },
+        "PopupComponent": {
+            "name": "PopupComponent",
+            "shortname": "PopupComponent",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ImageListModule",
+            "namespace": "",
+            "file": "src\\app\\popup\\popup.component.ts",
+            "line": 15,
+            "description": "Popup component\n\nRepresents a popup block with the full image."
+        },
+        "PopupService": {
+            "name": "PopupService",
+            "shortname": "PopupService",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ImageListModule",
+            "namespace": "",
+            "file": "src\\app\\popup\\popup.service.ts",
+            "line": 15,
+            "description": "Popup service\n\nProvides a service to create, show, hide and destroy the Popup component.",
+            "see": [
+                "PopupComponent"
+            ]
+        }
+    },
+    "elements": {
+        "ImageList": {
+            "name": "ImageList",
+            "attributes": [],
+            "module": "ImageListModule"
+        },
+        "PopupComponent": {
+            "name": "PopupComponent",
+            "attributes": [],
+            "module": "ImageListModule"
+        }
+    },
+    "classitems": [
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 39,
+            "description": "Текст кнопки \"Загрузить ещё\"",
+            "itemtype": "property",
+            "name": "textButton",
+            "type": "string",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 47,
+            "description": "Текст прелоадера.",
+            "itemtype": "property",
+            "name": "textButton",
+            "type": "string",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 55,
+            "description": "Текст надписи \"Альбом\"",
+            "itemtype": "property",
+            "name": "textButton",
+            "type": "string",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 63,
+            "description": "Текст надписи \"Фото\"",
+            "itemtype": "property",
+            "name": "textPhoto",
+            "type": "string",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 71,
+            "description": "Количество картинок на странице",
+            "itemtype": "property",
+            "name": "listLimit",
+            "type": "int",
+            "default": "9",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 80,
+            "description": "Текущаяя позиция последнего элемента в списке",
+            "itemtype": "property",
+            "name": "listPosition",
+            "type": "int",
+            "default": "0",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 89,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "imageList",
+            "type": "string",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 96,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "isEndOfList",
+            "type": "string",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 103,
+            "access": "private",
+            "tagname": "",
+            "itemtype": "property",
+            "name": "inProgress",
+            "type": "boolean",
+            "default": "false",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 111,
+            "description": "Доступ к контейнеру списка",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 116,
+            "description": "Состояние контейнера списка:",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 121,
+            "description": "Конструктор - подключаем зависимости",
+            "params": [
+                {
+                    "name": "popup",
+                    "description": ""
+                },
+                {
+                    "name": "renderer",
+                    "description": ""
+                },
+                {
+                    "name": "dataService",
+                    "description": ""
+                }
+            ],
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 130,
+            "description": "При создании компонента",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 146,
+            "description": "После рендеринга всех компонентов",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 155,
+            "description": "Инициирует получение новой порции списка",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getNextList",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 169,
+            "description": "Обрабатывает полученные от сервера данные",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "parseResponse",
+            "params": [
+                {
+                    "name": "response",
+                    "description": "Массив с картинками",
+                    "type": "Array"
+                }
+            ],
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 191,
+            "description": "Обрабатывает ошибку",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "parseError",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "Объект с параметрами ошибки",
+                    "type": "Object"
+                }
+            ],
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 205,
+            "description": "Вызывает popup",
+            "access": "protected",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "popupImage",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "URL картинки",
+                    "type": "String"
+                }
+            ],
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 219,
+            "description": "Скролит вниз страницы",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "scrollDown",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.component.ts",
+            "line": 233,
+            "description": "Уведомляет о загрузке картинки",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "imageIsLoaded",
+            "info": "Картинки загружаются асинхронно и меняют размеры страницы.\n      В частности они меняют размер scrollHeight.\n      И происходить это может уже после того как ngAfterViewChecked сообщил о завершении рендеринга.\n      В следствии чего функция scrollDown не будет отрабатывать правильно.\n\n      PS: данный метод не нужет, если мы заранее знаем размеры загружаемых картинок.",
+            "class": "ImageListComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.service.ts",
+            "line": 27,
+            "description": "URL шаблон обращения к серверному хранилищу картинок.\nВнутри шаблона можно использовать маркеры [start] и [limit],\nкоторые будут заменены на соответствующие значения.",
+            "itemtype": "property",
+            "name": "apiUrl",
+            "type": "string",
+            "class": "ImageListService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.service.ts",
+            "line": 37,
+            "description": "Признак того, что на сервере больше нет данных",
+            "class": "ImageListService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.service.ts",
+            "line": 42,
+            "description": "Конструктор",
+            "class": "ImageListService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.service.ts",
+            "line": 47,
+            "description": "Инициирует получение новой порции данных",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getNextList",
+            "params": [
+                {
+                    "name": "offset",
+                    "description": "Смещение от начала",
+                    "type": "Number"
+                },
+                {
+                    "name": "limit",
+                    "description": "Максимальное количество получаемых данных",
+                    "type": "Number"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Observable"
+            },
+            "class": "ImageListService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\image-list\\image-list.service.ts",
+            "line": 81,
+            "description": "Возвращает TRUE если на сервере больше нет данных.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "isDataFinished",
+            "class": "ImageListService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.component.ts",
+            "line": 31,
+            "description": "Определяет видимость картинки.",
+            "itemtype": "property",
+            "name": "isVisible",
+            "type": "boolean",
+            "default": "false",
+            "class": "PopupComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.component.ts",
+            "line": 40,
+            "description": "Определяет URL картинки.",
+            "itemtype": "property",
+            "name": "imgSource",
+            "type": "string",
+            "default": "''",
+            "class": "PopupComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.component.ts",
+            "line": 55,
+            "description": "Отображает элемент, инициализирует загрузку картинки.",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "show",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "URL картинки",
+                    "type": "String"
+                }
+            ],
+            "class": "PopupComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.component.ts",
+            "line": 69,
+            "description": "Скрывает элемент",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "hide",
+            "class": "PopupComponent",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.service.ts",
+            "line": 36,
+            "description": "Отображает Popup компонент",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "show",
+            "params": [
+                {
+                    "name": "url",
+                    "description": "URL адрес изображения",
+                    "type": "String"
+                }
+            ],
+            "class": "PopupService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.service.ts",
+            "line": 48,
+            "description": "Скрывает Popup компонент",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "hide",
+            "class": "PopupService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.service.ts",
+            "line": 59,
+            "description": "Возвращает экземпляр Popup компонент",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "getInstance",
+            "class": "PopupService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.service.ts",
+            "line": 70,
+            "description": "Создаёт Popup компонент",
+            "access": "private",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "create",
+            "class": "PopupService",
+            "module": "ImageListModule"
+        },
+        {
+            "file": "src\\app\\popup\\popup.service.ts",
+            "line": 96,
+            "description": "Уничтожает Popup компонент",
+            "access": "public",
+            "tagname": "",
+            "itemtype": "method",
+            "name": "destroy",
+            "class": "PopupService",
+            "module": "ImageListModule"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "unknown tag: copyright",
+            "line": " src\\app\\image-list\\image-list.component.ts:1"
+        },
+        {
+            "message": "unknown tag: created_on",
+            "line": " src\\app\\image-list\\image-list.component.ts:1"
+        },
+        {
+            "message": "unknown tag: info",
+            "line": " src\\app\\image-list\\image-list.component.ts:233"
+        },
+        {
+            "message": "unknown tag: copyright",
+            "line": " src\\app\\image-list\\image-list.service.ts:1"
+        },
+        {
+            "message": "unknown tag: created_on",
+            "line": " src\\app\\image-list\\image-list.service.ts:1"
+        },
+        {
+            "message": "unknown tag: copyright",
+            "line": " src\\app\\popup\\popup.component.ts:1"
+        },
+        {
+            "message": "unknown tag: created_on",
+            "line": " src\\app\\popup\\popup.component.ts:1"
+        },
+        {
+            "message": "unknown tag: copyright",
+            "line": " src\\app\\popup\\popup.service.ts:1"
+        },
+        {
+            "message": "unknown tag: created_on",
+            "line": " src\\app\\popup\\popup.service.ts:1"
+        },
+        {
+            "message": "Missing item type\nДоступ к контейнеру списка",
+            "line": " src\\app\\image-list\\image-list.component.ts:111"
+        },
+        {
+            "message": "Missing item type\nСостояние контейнера списка:",
+            "line": " src\\app\\image-list\\image-list.component.ts:116"
+        },
+        {
+            "message": "Missing item type\nКонструктор - подключаем зависимости",
+            "line": " src\\app\\image-list\\image-list.component.ts:121"
+        },
+        {
+            "message": "Missing item type\nПри создании компонента",
+            "line": " src\\app\\image-list\\image-list.component.ts:130"
+        },
+        {
+            "message": "Missing item type\nПосле рендеринга всех компонентов",
+            "line": " src\\app\\image-list\\image-list.component.ts:146"
+        },
+        {
+            "message": "Missing item type\nПризнак того, что на сервере больше нет данных",
+            "line": " src\\app\\image-list\\image-list.service.ts:37"
+        },
+        {
+            "message": "Missing item type\nКонструктор",
+            "line": " src\\app\\image-list\\image-list.service.ts:42"
+        }
+    ]
+}
