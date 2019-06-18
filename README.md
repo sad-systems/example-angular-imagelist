@@ -23,7 +23,7 @@ To work with data RxJS library is used.
 
 ### Live demo
 
-[http://examples.sad-systems.ru/imagelist/]()
+  Try the [live demo](http://examples.sad-systems.ru/imagelist/)
 
 ### Project documentation
 
