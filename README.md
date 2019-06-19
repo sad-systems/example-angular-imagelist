@@ -3,6 +3,12 @@
 ###### Author: MrDigger <mrdigger@mail.ru>
 ###### © SAD-Systems [http://sad-systems.ru](), 2018
 
+## Is used
+
+  * [Angular 6](https://angular.io)
+  * [Pug](https://pugjs.org)
+  * [RxJS](http://reactivex.io/rxjs)
+
 ## Description
 
 > ![English](docs/assets/img/en.gif)

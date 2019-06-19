@@ -30,7 +30,7 @@ import { Equal } from 'lodash';
  */
 @Component({
   selector:    'app-image-list',
-  templateUrl: './image-list.component.html',
+  templateUrl: './image-list.component.pug',
   styleUrls:  ['./image-list.component.css'],
   providers:  [ ImageListService ],
 })

@@ -1,0 +1,11 @@
+div.image_list_container(#conteiner)
+  ul
+    li(*ngFor="let item of imageList")
+      a(href="#", (click)="popupImage( item.url )")
+        img(src="{{ item.thumbnailUrl }}" alt="Image: {{ item.albumId }}.{{ item.id }}", (load)="imageIsLoaded()")
+        div.album {{ textAlbum }}:  {{ item.albumId }}
+        div.photo {{ textPhoto }}: {{ item.id }}
+        div.title {{ item.title }}
+
+  button.button_next(*ngIf="!isEndOfList && !inProgress", (click)="getNextList()") {{ textButton }}
+  div.preloader(*ngIf="inProgress") {{ textPreloader }}
